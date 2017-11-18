@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import get_movie_detail
 from tornado import ioloop, httpclient
 import pprint
@@ -45,7 +46,7 @@ def handle_request(url, response):
 
     if response.code == 200:
         i -= 1
-        json_response = json.loads(response.body)
+        json_response = json.loads(response.body.decode('utf-8'))
         movie = None
         items = None
         global movies_dict
